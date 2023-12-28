@@ -1,0 +1,50 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    background-image: url("pokemon-background-img02.png");
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+div{
+    width: 200px;
+    padding: 25px 0;
+    display: flex;
+    gap: 20px;
+    margin: auto;
+    align-items: center;
+    border: 30px solid;
+    flex-direction: column;
+    border-image: url("pokemon-border-image001.png")60;
+    background-color: rgba(0, 0, 0);
+}
+img{
+    border: 35px solid;
+    border-image: url("pokemon-pp-img01.png") 155;
+}
+h2{
+    border: 5px solid yellow;
+    border-image: url('pokemon-button-img.png') 155;
+    padding: 5px;
+    color: rgb(252, 235, 0);
+}
+h4{
+    border: 5px solid yellow;
+    border-image: url('pokemon-button-img.png') 155;
+    padding: 5px;
+    color:  rgb(252, 235, 0);
+}
+button{
+    border: 5px solid yellow;
+    border-image: url('pokemon-button-img.png') 155;
+    padding: 5px;
+    background-color: black;
+    cursor: pointer;
+    color: rgb(252, 235, 0);
+}
