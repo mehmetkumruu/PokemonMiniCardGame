@@ -18,13 +18,17 @@ böylelikle oyunun sürekli güncel kalır
   position: sticky;
   height: 100vh;
 }
-.pokemon-game-card {
+.pokemon-enemy-card,
+.pokemon-user-card {
   background-image: url("pokemon-card-black-gold.png");
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: -30px 0px 29px 32px rgba(0, 0, 0, 0.3);
   width: 515px;
   height: 710px;
+}
+.pokemon-enemy-card {
+  background-image: url("pokemon-card-black-white.png");
 }
 .poke-card-info {
   display: flex;
@@ -92,7 +96,7 @@ böylelikle oyunun sürekli güncel kalır
   padding-top: 10px;
 }
 .poke-attack-text {
-  padding-top: 20px;
+  padding-top: 15px;
   color: #fbe602;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -102,4 +106,13 @@ böylelikle oyunun sürekli güncel kalır
   font-family: "Rubik Lines";
   font-weight: 300;
   color: #fbe602;
+}
+.poke-enemy-hp,
+.poke-enemy-race,
+.poke-enemy-race > span,
+.poke-enemy-defense,
+.poke-enemy-defense > strong,
+.poke-enemy-attack-text,
+.poke-enemy-attack-info {
+  color: white;
 }

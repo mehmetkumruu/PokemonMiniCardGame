@@ -80,8 +80,9 @@ function getRandomNumber() {
 // }
 async function pokemonEnemyGetir() {
   const randomId = getRandomNumber();
+  const enemyId = getRandomNumber();
   const responseEnemy = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${randomId}`
+    `https://pokeapi.co/api/v2/pokemon/${enemyId}`
   );
   const pokemonDataEnemy = await responseEnemy.json();
   const responsePlayer = await fetch(
@@ -90,6 +91,9 @@ async function pokemonEnemyGetir() {
   const pokemonUser = await responsePlayer.json();
   const pokeRace = pokemonUser.types.map((pokemonRace) => {
     return pokemonRace.type.name;
+  });
+  const pokeEnemyRace = pokemonDataEnemy.types.map((pokemonEnemyRace) => {
+    return pokemonEnemyRace.type.name;
   });
   // for (let index = 0; index < pokeRace.length; index++) {
   //   if (pokeRace[index] === "undefined") {
@@ -103,7 +107,14 @@ async function pokemonEnemyGetir() {
   playerPokemon.attack = pokemonUser.stats[1].base_stat;
   playerPokemon.defense = pokemonUser.stats[2].base_stat;
   playerPokemon.race = pokeRace;
+  enemy.name = pokemonDataEnemy.name;
+  enemy.initialHp = pokemonDataEnemy.stats[0].base_stat;
+  enemy.image = pokemonDataEnemy.sprites.other.home.front_default;
+  enemy.attack = pokemonDataEnemy.stats[1].base_stat;
+  enemy.defense = pokemonDataEnemy.stats[2].base_stat;
+  enemy.race = pokeEnemyRace;
   renderPlayerPokemon(playerPokemon);
+  renderEnemyPokemon(enemy);
   // playerPokemon.attack = pokemonDataPlayer.
   // console.log(pokemonDataEnemy);
   // console.log(pokemonDataPlayer);
@@ -120,7 +131,7 @@ async function pokemonEnemyGetir() {
 }
 
 function renderPlayerPokemon(pokemon) {
-  const userCard = document.getElementById("pokemon-game-card");
+  const userCard = document.getElementById("pokemon-user-card");
   userCard.innerHTML = `
   <div class="poke-card-info">
   <img class="poke-card-rank" src="" alt="">
@@ -151,6 +162,49 @@ function renderPlayerPokemon(pokemon) {
     <div class="poke-hero-attack-info">
         <p class="poke-attack-text">ATTACK :</p>
         <h1 class="poke-attack-info">${pokemon.attack}</h1>
+    </div>
+  </div>
+</div>
+  `;
+}
+function renderEnemyPokemon(enemyPokemon) {
+  const enemyCard = document.getElementById("pokemon-enemy-card");
+  enemyCard.innerHTML = `
+  <div class="poke-card-info">
+  <img class="poke-card-rank" src="" alt="">
+  <h2 class="poke-hero-name">${enemyPokemon.name}</h2>
+  <h1 id="poke-hero-hp" class="poke-hero-hp poke-enemy-hp">${
+    enemyPokemon.initialHp
+  }</h1>
+</div>
+<div class="poke-card-hero-image">
+  <img id="poke-hero-img" class="poke-hero-img" src="${
+    enemyPokemon.image
+  }" alt="">
+</div>
+<div class="poke-card-power-info">
+  <div class="poke-hero-info">
+      <div class="poke-hero-gen-info">  
+          <p id="poke-hero-race" class="poke-hero-race poke-enemy-race">RACE  <span>${
+            enemyPokemon.race[0]
+          } ${enemyPokemon.race[1] ?? ""}</span></p>
+      </div>
+      <div class="poke-hero-defense-info">
+          <p class="poke-hero-defense poke-enemy-defense">DEFENSE:<strong>${
+            enemyPokemon.defense
+          }</strong></p>
+      </div>
+  </div>
+  <div class="poke-hero-info-down-side">
+    <div class="poke-hero-update-power-img">
+        <a class="poke-attack-up"><img class="poke-hero-attack-up" src="" alt=""></a>
+        <a class="poke-defence-up"><img class="poke-hero-defence-up" src="" alt=""></a>
+    </div>
+    <div class="poke-hero-attack-info">
+        <p class="poke-attack-text poke-enemy-attack-text">ATTACK :</p>
+        <h1 class="poke-attack-info poke-enemy-attack-info">${
+          enemyPokemon.attack
+        }</h1>
     </div>
   </div>
 </div>
