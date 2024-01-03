@@ -1,50 +1,105 @@
-*{
-    margin:0;
-    padding: 0;
+/* sana tavsiyem kartların kullanılma sayısını veri tabanında kaydet ve belirlenen bir zamanda en çok kullanılan kart ın güzünü azaltırken en az kullanılan kartın gücünü arttırabilirsin
+böylelikle oyunun sürekli güncel kalır
+örn: LOL */
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
 }
-body{
-    background-image: url("pokemon-background-img02.png");
-    height: 100vh;
-    width: 100vw;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.pokemon-game-arena {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  background-image: url("pokemon-background-img02.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: sticky;
+  height: 100vh;
 }
-div{
-    width: 200px;
-    padding: 25px 0;
-    display: flex;
-    gap: 20px;
-    margin: auto;
-    align-items: center;
-    border: 30px solid;
-    flex-direction: column;
-    border-image: url("pokemon-border-image001.png")60;
-    background-color: rgba(0, 0, 0);
+.pokemon-game-card {
+  background-image: url("pokemon-card-black-gold.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: -30px 0px 29px 32px rgba(0, 0, 0, 0.3);
+  width: 515px;
+  height: 710px;
 }
-img{
-    border: 35px solid;
-    border-image: url("pokemon-pp-img01.png") 155;
+.poke-card-info {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
 }
-h2{
-    border: 5px solid yellow;
-    border-image: url('pokemon-button-img.png') 155;
-    padding: 5px;
-    color: rgb(252, 235, 0);
+.poke-hero-name {
+  font-size: 32px;
+  text-transform: capitalize;
+  color: black;
+  font-family: "Rubik Lines";
 }
-h4{
-    border: 5px solid yellow;
-    border-image: url('pokemon-button-img.png') 155;
-    padding: 5px;
-    color:  rgb(252, 235, 0);
+.poke-hero-hp {
+  font-size: 36px;
+  color: #fbe602;
+  font-family: "Rubik Lines";
+  font-weight: 400;
 }
-button{
-    border: 5px solid yellow;
-    border-image: url('pokemon-button-img.png') 155;
-    padding: 5px;
-    background-color: black;
-    cursor: pointer;
-    color: rgb(252, 235, 0);
+.poke-card-hero-image {
+  background-image: url("pokemon-ball-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 560px;
+  position: relative;
+  z-index: -1;
+}
+.poke-hero-img {
+  filter: drop-shadow(0px 0px 75px #eeff00);
+}
+.poke-hero-info {
+  display: flex;
+  justify-content: space-around;
+}
+.poke-hero-race,
+.poke-hero-defense {
+  color: #fbe602;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+.poke-hero-race {
+  padding-left: 30px;
+}
+.poke-hero-race > span {
+  font-family: "Rubik Lines";
+  font-weight: 300;
+  font-size: 14px;
+  color: #fbe602;
+  padding-left: 25px;
+}
+.poke-hero-defense > strong {
+  font-family: "Rubik Lines";
+  font-weight: 300;
+  color: #fbe602;
+  padding-left: 10px;
+}
+.poke-hero-info-down-side {
+  display: flex;
+  gap: 195px;
+}
+.poke-hero-attack-info {
+  display: flex;
+  gap: 55px;
+  padding-top: 10px;
+}
+.poke-attack-text {
+  padding-top: 20px;
+  color: #fbe602;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+.poke-attack-info {
+  font-family: "Rubik Lines";
+  font-weight: 300;
+  color: #fbe602;
 }
