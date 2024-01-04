@@ -178,7 +178,7 @@ function renderEnemyPokemon(enemyPokemon) {
   }</h1>
 </div>
 <div class="poke-card-hero-image">
-  <img id="poke-hero-img" class="poke-hero-img" src="${
+  <img id="poke-hero-img" class="poke-enemy-img" src="${
     enemyPokemon.image
   }" alt="">
 </div>
